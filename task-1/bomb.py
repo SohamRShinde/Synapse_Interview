@@ -30,9 +30,8 @@ def deadIslands(region, coords, m):
     region = np.array(region)
     n,n = np.shape(region)
     deadIslands = []
-    tempcoords = [n - 1 - coords[1], coords[0]]
-    for i in range(tempcoords[0] - m//2, tempcoords[0] + m//2 + 1):
-        for j in range(tempcoords[1] - m//2, tempcoords[1] + m//2 + 1):
+    for i in range(n - coords[1] - m//2 - 1, n - coords[1] + m//2 ):
+        for j in range(coords[0] - m//2, coords[0] + m//2 + 1):
             if(region[i,j] == 1):
                 deadIslands.append([j, n - 1 - i])
     return deadIslands
